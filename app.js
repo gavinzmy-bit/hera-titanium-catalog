@@ -23,7 +23,8 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
     });
   }
-  function money(p) { return '$' + (Math.round(p * 100) / 100).toFixed(2); }
+  function round2(p) { return Math.round(p * 100 + 1e-6) / 100; }
+  function money(p) { return '$' + round2(p).toFixed(2); }
   function priceRange(a) {
     if (a.pmin == null) return null;
     if (a.pmax != null && a.pmax > a.pmin + 0.001) return money(a.pmin) + ' – ' + money(a.pmax);
@@ -405,7 +406,7 @@
     if (!arr.length) { toast('清单是空的'); return; }
     var rows = [['No', 'Code', 'Price USD', 'Material', 'Spec', 'Collection', 'Image']];
     arr.forEach(function (x) {
-      rows.push([x.n, x.c, x.p == null ? '' : x.p.toFixed(2), x.m, x.s, x.album, x.img]);
+      rows.push([x.n, x.c, x.p == null ? '' : round2(x.p).toFixed(2), x.m, x.s, x.album, x.img]);
     });
     var csv = '\ufeff' + rows.map(function (r) {
       return r.map(function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; }).join(',');
