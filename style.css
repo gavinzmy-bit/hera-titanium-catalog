@@ -49,6 +49,20 @@ header.head{position:sticky;top:0;z-index:40;background:rgba(250,249,247,.92);ba
 @media (max-width:1240px){.iconbtn.wa .num{display:none}}
 @media (min-width:1241px){.iconbtn.wa .lbl{display:none}}
 
+/* ---------- 速卖通店铺条 ---------- */
+.shopbar{border-top:1px solid var(--line);background:linear-gradient(180deg,#fdfbf7,#f8f5ef)}
+.shopbar .wrap{display:flex;align-items:center;gap:10px;height:34px}
+.shopbar .sl{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:var(--ink-2);white-space:nowrap}
+.shopbar .sl .dot{width:6px;height:6px;border-radius:50%;background:#ff4d4d;flex:0 0 auto;box-shadow:0 0 0 3px rgba(255,77,77,.14)}
+.shopbar .sl .t2{color:var(--ink-3);font-weight:600}
+.shopbar .sl b{font-weight:700}
+.shopbar .sl .t3{display:none}
+.shopbar .srow{margin-left:auto;display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.shopbar .srow::-webkit-scrollbar{display:none}
+.shopbar a{display:inline-flex;align-items:center;gap:4px;height:23px;padding:0 9px;border:1px solid #efd5d5;border-radius:999px;background:#fff;font-size:11.5px;font-weight:700;color:#c33a3a;white-space:nowrap;transition:.15s}
+.shopbar a:hover{background:#fff6f6;border-color:#f0b6b6;color:#a52a2a}
+.shopbar a .ar{font-size:10px;opacity:.65}
+
 /* ---------- 类目条 ---------- */
 .catbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.6)}
 .catbar .row{display:flex;gap:8px;overflow-x:auto;padding:10px 18px;scrollbar-width:none}
@@ -86,7 +100,7 @@ select.sort{height:34px;border:1px solid var(--line);border-radius:9px;backgroun
 .acard .price{color:#8a5f0a;font-weight:700;font-size:12.5px;font-variant-numeric:tabular-nums}
 
 /* ---------- 相册详情 ---------- */
-.subhead{position:sticky;top:66px;z-index:30;background:rgba(250,249,247,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.subhead{position:sticky;top:var(--head-h,107px);z-index:30;background:rgba(250,249,247,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .subhead .in{display:flex;align-items:center;gap:14px;padding:12px 0;flex-wrap:wrap}
 .back{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--ink-2);border:1px solid var(--line);background:#fff;border-radius:9px;height:32px;padding:0 11px}
 .back:hover{border-color:#d5cfc5}
@@ -200,12 +214,21 @@ footer.ft .wrap{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-
   .iconbtn .lbl{display:none}
   .iconbtn{min-width:36px;padding:0 8px;justify-content:center}
   .head-tools{gap:6px}
+  .shopbar .wrap{height:32px;gap:7px}
+  .shopbar .sl{font-size:11px}
+  .shopbar .sl .t2{display:none}
+  .shopbar a{height:22px;padding:0 8px;font-size:11px}
   .hero p{font-size:12.5px}
   .album-grid .acard .meta span:last-child{display:none}
   .search{order:3;flex:1 0 100%;max-width:none}
-  .subhead{top:0}
   .album-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
   .item-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
   .hero h2{font-size:17px}
   .topbar .txt{display:none}
+}
+
+@media (max-width:560px){
+  .shopbar .sl .t1{display:none}
+  .shopbar .sl .t3{display:inline}
+  .shopbar .srow{gap:5px}
 }

@@ -475,10 +475,18 @@
   window.exportCsv = exportCsv;
   window.sendWa = sendWa;
 
+  /* 吸顶头部高度会随行数/宽度变化，把它量出来给相册页吸顶小标题用 */
+  function syncHeadH() {
+    var hd = document.querySelector('header.head');
+    if (hd) document.documentElement.style.setProperty('--head-h', hd.offsetHeight + 'px');
+  }
+  window.addEventListener('resize', syncHeadH);
+
   $('#ftStat').textContent = C.meta.categories + ' categories · ' + C.meta.albums +
     ' collections · ' + C.meta.items.toLocaleString() + ' styles · last update ' +
     new Date(document.lastModified).toISOString().slice(0, 10);
   renderCatBar();
   paintInq();
   route();
+  syncHeadH();
 })();
