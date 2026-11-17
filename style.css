@@ -50,18 +50,16 @@ header.head{position:sticky;top:0;z-index:40;background:rgba(250,249,247,.92);ba
 @media (min-width:1241px){.iconbtn.wa .lbl{display:none}}
 
 /* ---------- 速卖通店铺条 ---------- */
-.shopbar{border-top:1px solid var(--line);background:linear-gradient(180deg,#fdfbf7,#f8f5ef)}
-.shopbar .wrap{display:flex;align-items:center;gap:10px;height:34px}
-.shopbar .sl{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:var(--ink-2);white-space:nowrap}
-.shopbar .sl .dot{width:6px;height:6px;border-radius:50%;background:#ff4d4d;flex:0 0 auto;box-shadow:0 0 0 3px rgba(255,77,77,.14)}
-.shopbar .sl .t2{color:var(--ink-3);font-weight:600}
-.shopbar .sl b{font-weight:700}
-.shopbar .sl .t3{display:none}
-.shopbar .srow{margin-left:auto;display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
-.shopbar .srow::-webkit-scrollbar{display:none}
-.shopbar a{display:inline-flex;align-items:center;gap:4px;height:23px;padding:0 9px;border:1px solid #efd5d5;border-radius:999px;background:#fff;font-size:11.5px;font-weight:700;color:#c33a3a;white-space:nowrap;transition:.15s}
-.shopbar a:hover{background:#fff6f6;border-color:#f0b6b6;color:#a52a2a}
-.shopbar a .ar{font-size:10px;opacity:.65}
+.shopbar{border-top:1px solid var(--line);background:linear-gradient(180deg,#fdfbf7,#f8f5ef);max-height:96px;overflow:hidden;transition:max-height .2s ease,opacity .2s ease}
+header.head.collapsed .shopbar{max-height:0;opacity:0}
+.shopbar .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:8px 18px}
+.store{display:flex;align-items:center;gap:11px;min-width:0;height:46px;padding:0 14px;border:1px solid #f0dcdc;border-radius:12px;background:#fff;transition:.16s}
+.store:hover{border-color:#f0aeae;background:#fffafa;box-shadow:0 8px 20px -14px rgba(190,45,45,.7);transform:translateY(-1px)}
+.store .ae{width:86px;height:21px;fill:#ff4747;flex:0 0 auto}
+.store .st{display:flex;flex-direction:column;line-height:1.16;min-width:0}
+.store .st b{font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.store .st em{font-style:normal;font-size:11.5px;color:#8a8f96;margin-top:2px}
+.store .go{margin-left:auto;font-size:15px;font-weight:700;color:#e05252;flex:0 0 auto}
 
 /* ---------- 类目条 ---------- */
 .catbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.6)}
@@ -214,10 +212,13 @@ footer.ft .wrap{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-
   .iconbtn .lbl{display:none}
   .iconbtn{min-width:36px;padding:0 8px;justify-content:center}
   .head-tools{gap:6px}
-  .shopbar .wrap{height:32px;gap:7px}
-  .shopbar .sl{font-size:11px}
-  .shopbar .sl .t2{display:none}
-  .shopbar a{height:22px;padding:0 8px;font-size:11px}
+  .shopbar .wrap{gap:7px;padding:8px 14px}
+  .store{flex-direction:column;justify-content:center;gap:3px;height:54px;padding:0 4px}
+  .store .ae{width:58px;height:14px}
+  .store .st{align-items:center;text-align:center}
+  .store .st b{font-size:12px}
+  .store .st em{display:none}
+  .store .go{display:none}
   .hero p{font-size:12.5px}
   .album-grid .acard .meta span:last-child{display:none}
   .search{order:3;flex:1 0 100%;max-width:none}
@@ -227,8 +228,3 @@ footer.ft .wrap{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-
   .topbar .txt{display:none}
 }
 
-@media (max-width:560px){
-  .shopbar .sl .t1{display:none}
-  .shopbar .sl .t3{display:inline}
-  .shopbar .srow{gap:5px}
-}

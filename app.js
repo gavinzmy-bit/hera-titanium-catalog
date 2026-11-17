@@ -482,6 +482,19 @@
   }
   window.addEventListener('resize', syncHeadH);
 
+  /* 往下滚动时收起速卖通店铺条，把高度还给内容；回到顶部再展开 */
+  var hd = document.querySelector('header.head');
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 140 && !hd.classList.contains('collapsed')) {
+      hd.classList.add('collapsed');
+      syncHeadH(); setTimeout(syncHeadH, 240);
+    } else if (y < 60 && hd.classList.contains('collapsed')) {
+      hd.classList.remove('collapsed');
+      syncHeadH(); setTimeout(syncHeadH, 240);
+    }
+  }, { passive: true });
+
   $('#ftStat').textContent = C.meta.categories + ' categories · ' + C.meta.albums +
     ' collections · ' + C.meta.items.toLocaleString() + ' styles · last update ' +
     new Date(document.lastModified).toISOString().slice(0, 10);
