@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HERA Titanium Body Jewelry · Wholesale Catalog / 批发画册</title>
+<meta name="description" content="ASTM F136 implant grade titanium body jewelry. Wholesale catalog: hoops, labret studs, barbells, belly rings, accessories. 400+ collections, 6900+ styles.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23101215'/><path d='M16 6l6 6-6 14-6-14z' fill='%23f4d79a'/></svg>">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="tag">ASTM F136 Implant Grade</span>
+    <span class="txt">Factory direct wholesale · G23 titanium · Global air shipping</span>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap head-row">
+    <a class="brand" href="#/">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l5 5-5 13-5-13z" fill="#f4d79a"/><path d="M7 8h10" stroke="#101215" stroke-width="1.1"/></svg>
+      </span>
+      <div>
+        <h1>HERA Titanium Body Jewelry</h1>
+        <p>Wholesale Catalog · 批发产品画册</p>
+      </div>
+    </a>
+
+    <div class="search">
+      <span class="ic">⌕</span>
+      <input id="q" type="search" placeholder="Search code / spec / model  ·  搜编号、规格、编码" autocomplete="off">
+      <button class="clr hide" id="qClr" title="Clear">✕</button>
+    </div>
+
+    <div class="head-tools">
+      <button class="iconbtn on" id="priceBtn" title="Show / hide prices">👁 <span class="lbl" id="priceLbl">Price</span></button>
+      <button class="iconbtn" id="inqBtn" title="Inquiry list / 询价清单">📋 <span class="lbl">Inquiry</span> <span class="badge hide" id="inqBadge">0</span></button>
+    </div>
+  </div>
+
+  <div class="catbar">
+    <div class="wrap" style="padding:0">
+      <div class="row" id="catbar"></div>
+    </div>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<footer class="ft">
+  <div class="wrap">
+    <span id="ftStat">Loading…</span>
+    <span>ASTM F136 / G23 Titanium · Prices in USD, EXW · 价格以美元计，不含运费</span>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lb" id="lb">
+  <div class="bg" onclick="closeLb()"></div>
+  <div class="panel">
+    <button class="close" onclick="closeLb()">✕</button>
+    <div class="stage">
+      <button class="nav prev" id="lbPrev">‹</button>
+      <img id="lbImg" src="" alt="">
+      <button class="nav next" id="lbNext">›</button>
+    </div>
+    <div class="side">
+      <div class="kick" id="lbKick">Collection</div>
+      <h3 id="lbNo">—</h3>
+      <div class="big" id="lbPrice">—</div>
+      <dl>
+        <dt>Code / 编码</dt><dd id="lbCode">—</dd>
+        <dt>Material</dt><dd id="lbMat">—</dd>
+        <dt>Collection</dt><dd id="lbAlbum">—</dd>
+      </dl>
+      <div class="specwrap">
+        <b>Specifications / 规格</b>
+        <div class="specs" id="lbSpecs"></div>
+      </div>
+      <div class="acts">
+        <button class="primary" id="lbAdd">＋ Add to inquiry</button>
+        <button class="ghost" onclick="closeLb()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="backdrop" id="backdrop" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer">
+  <div class="dh">
+    <h3>Inquiry List</h3><span class="n" id="inqN">0</span>
+    <button class="x" onclick="closeDrawer()">✕</button>
+  </div>
+  <div class="list" id="inqList"></div>
+  <div class="df">
+    <div class="sum"><span>Estimated total / 预估合计</span><b id="inqTotal">$0.00</b></div>
+    <div class="btns">
+      <button onclick="copyInquiry()">Copy list</button>
+      <button onclick="exportCsv()">Export CSV</button>
+      <button class="wa" onclick="sendWa()">Send via WhatsApp</button>
+    </div>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
