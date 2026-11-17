@@ -43,6 +43,11 @@ header.head{position:sticky;top:0;z-index:40;background:rgba(250,249,247,.92);ba
 .iconbtn:hover{border-color:#d8d3cb;background:#fdfcfa}
 .iconbtn.on{background:#101215;color:#fff;border-color:#101215}
 .iconbtn .badge{background:var(--accent);color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:1px 6px;min-width:18px;text-align:center}
+.iconbtn.wa{background:#25d366;border-color:#25d366;color:#fff;font-weight:700;text-decoration:none;white-space:nowrap}
+.iconbtn.wa:hover{background:#1fbe5b;border-color:#1fbe5b;color:#fff}
+.iconbtn.wa .wai{width:16px;height:16px;fill:currentColor;flex:0 0 auto}
+@media (max-width:1240px){.iconbtn.wa .num{display:none}}
+@media (min-width:1241px){.iconbtn.wa .lbl{display:none}}
 
 /* ---------- 类目条 ---------- */
 .catbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.6)}
@@ -189,11 +194,11 @@ footer.ft .wrap{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-
   .brand p{display:none}
 }
 @media (max-width:720px){
-  .head-row{height:auto;flex-wrap:wrap;padding:9px 0;gap:8px}
-  .brand h1{font-size:13px;max-width:158px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .brand .mark{width:30px;height:30px;border-radius:9px}
+  .head-row{height:auto;flex-wrap:wrap;padding:9px 14px;gap:8px}
+  .brand h1{font-size:12.5px;max-width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand .mark{width:28px;height:28px;border-radius:9px}
   .iconbtn .lbl{display:none}
-  .iconbtn{min-width:38px;padding:0 9px;justify-content:center}
+  .iconbtn{min-width:36px;padding:0 8px;justify-content:center}
   .head-tools{gap:6px}
   .hero p{font-size:12.5px}
   .album-grid .acard .meta span:last-child{display:none}

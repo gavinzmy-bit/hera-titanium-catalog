@@ -6,6 +6,7 @@
   var MAT_FALLBACK = 'ASTM F136 Titanium';
   var IMG_DIR = 'images/';
   var LS_KEY = 'hera_inquiry_v1';
+  var WA_NUMBER = '84949437630';   /* +84 94 943 76 30 */
 
   var state = { cat: 'all', q: '', showPrice: true, sort: 'default', limit: 24 };
   var albumIndex = new Map();
@@ -421,7 +422,7 @@
   function sendWa() {
     var arr = loadInq();
     if (!arr.length) { toast('清单是空的'); return; }
-    window.open('https://wa.me/?text=' + encodeURIComponent(inqText()), '_blank');
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(inqText()), '_blank');
   }
   function closeDrawer() {
     $('#drawer').classList.remove('on');
