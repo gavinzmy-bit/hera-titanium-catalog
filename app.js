@@ -7,6 +7,7 @@
   var IMG_DIR = 'images/';
   var LS_KEY = 'hera_inquiry_v1';
   var WA_NUMBER = '84949437630';   /* +84 94 943 76 30 */
+  var AE_ITEM = 'https://www.aliexpress.com/item/';   /* + 商品ID + .html */
 
   var state = { cat: 'all', q: '', showPrice: true, sort: 'default', limit: 24 };
   var albumIndex = new Map();
@@ -169,9 +170,16 @@
     if (state.showPrice) {
       priceHtml = pr ? '<span class="p">' + pr + '</span>' : '<span class="p ask">Ask price</span>';
     }
+    var ae = it.a
+      ? '<a class="aeb" href="' + AE_ITEM + it.a + '.html" target="_blank" rel="noopener"' +
+        ' title="Buy on AliExpress / 去速卖通下单" aria-label="Buy on AliExpress"' +
+        ' onclick="event.stopPropagation()">' +
+        '<svg aria-hidden="true"><use href="#aeLogo"/></svg><span>Buy</span></a>'
+      : '';
     return '<div class="icard" data-k="' + k + '">' +
       '<div class="pic">' +
         '<img src="' + IMG_DIR + it.i + '" alt="' + esc(it.n) + '" loading="lazy" decoding="async">' +
+        ae +
         '<button class="add' + (inq ? ' on' : '') + '" title="Add to inquiry / 加入询价">' + (inq ? '✓' : '＋') + '</button>' +
       '</div>' +
       '<div class="info">' +
@@ -289,6 +297,14 @@
     var inq = hasInq(a.id, it);
     add.textContent = inq ? '✓ Added · 已加入' : '＋ Add to inquiry';
     add.onclick = function () { addInq(e); };
+    var buy = $('#lbBuy');
+    if (it.a) {
+      buy.href = AE_ITEM + it.a + '.html';
+      buy.classList.remove('hide');
+    } else {
+      buy.removeAttribute('href');
+      buy.classList.add('hide');
+    }
     $('#lbPrev').style.visibility = lbList.length > 1 ? 'visible' : 'hidden';
     $('#lbNext').style.visibility = lbList.length > 1 ? 'visible' : 'hidden';
   }
